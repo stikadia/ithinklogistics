@@ -93,6 +93,16 @@ Refer to the `API.html` file for details on available APIs for categories and pr
 
 ---
 
+## Run Server
+
+```bash
+   php artisan serve
+   ```
+- Check server: http://localhost:8000
+- Check APIs as per the `API.html`
+
+---
+
 ## Notes
 
 - Ensure that you have `PHP`, `Composer`, and `MySQL` installed and configured properly before proceeding.
