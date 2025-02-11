@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Categories API Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; background-color: #f8f9fa; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { color: #d63384; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Products & Categories API v1</h1>
+        <p>Base URL: <code>/api/v1</code></p>
+        <p>Rate Limit: 100 requests per minute</p>
+        
+        <h2>Categories API</h2>
+        <p><strong>GET /categories</strong> - Retrieve all categories</p>
+        <pre>
+        GET /api/v1/categories
+        </pre>
+        <p><strong>Response Codes:</strong> 200 (OK)</p>
+        <pre>
+        {
+            "id": 1,
+            "name": "Electronics",
+            "parent_category_id": null,
+            "created_at": "2024-07-05T12:00:00Z",
+            "updated_at": "2024-07-05T12:00:00Z"
+        }
+        </pre>
+        
+        <h2>Products API</h2>
+        <p><strong>GET /products</strong> - Retrieve all products</p>
+        <pre>
+        GET /api/v1/products
+        </pre>
+        <p><strong>Response Codes:</strong> 200 (OK)</p>
+        <pre>
+        [
+            {
+                "id": 1,
+                "name": "Laptop",
+                "description": "High-end gaming laptop",
+                "sku": "LAP12345",
+                "price": "1500.00",
+                "category_id": 1,
+                "created_at": "2024-07-05T12:00:00Z",
+                "updated_at": "2024-07-05T12:00:00Z"
+            }
+        ]
+        </pre>
+        
+        <p><strong>GET /products/{id}</strong> - Retrieve a specific product by ID</p>
+        <pre>
+        GET /api/v1/products/1
+        </pre>
+        <p><strong>Response Code:</strong> 200 (OK)</p>
+        <pre>
+        {
+            "id": 1,
+            "name": "Laptop",
+            "description": "High-end gaming laptop",
+            "sku": "LAP12345",
+            "price": "1500.00",
+            "category_id": 1,
+            "created_at": "2024-07-05T12:00:00Z",
+            "updated_at": "2024-07-05T12:00:00Z"
+        }
+        </pre>
+        <p><strong>Error Response:</strong> 404 (Not Found)</p>
+        <pre>
+        {
+            "message": "Product not found"
+        }
+        </pre>
+        
+        <p><strong>GET /products?search=test</strong> - Search for products by keyword</p>
+        <pre>
+        GET /api/v1/products?search=test
+        </pre>
+        <p><strong>Response Code:</strong> 200 (OK)</p>
+        <pre>
+        [
+            {
+                "id": 2,
+                "name": "Test Product",
+                "description": "Sample description",
+                "sku": "TEST123",
+                "price": "500.00",
+                "category_id": 1,
+                "created_at": "2024-07-05T12:00:00Z",
+                "updated_at": "2024-07-05T12:00:00Z"
+            }
+        ]
+        </pre>
+        
+        <p><strong>POST /products</strong> - Create a new product</p>
+        <pre>
+        POST /api/v1/products
+        Body:
+        {
+            "name": "Smartphone",
+            "description": "Latest model with advanced features",
+            "sku": "SM12345",
+            "price": "799.99",
+            "category_id": 1
+        }
+        </pre>
+        <p><strong>Response Code:</strong> 201 (Created)</p>
+        <pre>
+        {
+            "id": 3,
+            "name": "Smartphone",
+            "description": "Latest model with advanced features",
+            "sku": "SM12345",
+            "price": "799.99",
+            "category_id": 1,
+            "created_at": "2024-07-05T12:00:00Z",
+            "updated_at": "2024-07-05T12:00:00Z"
+        }
+        </pre>
+        
+        <p><strong>PUT /products/{id}</strong> - Update an existing product</p>
+        <pre>
+        PUT /api/v1/products/1
+        Body:
+        {
+            "name": "Updated Laptop",
+            "price": "1400.00"
+        }
+        </pre>
+        <p><strong>Response Code:</strong> 200 (OK)</p>
+        <pre>
+        {
+            "message": "Product updated"
+        }
+        </pre>
+        <p><strong>Error Response:</strong> 404 (Not Found)</p>
+        <pre>
+        {
+            "message": "Product not found"
+        }
+        </pre>
+        
+        <p><strong>DELETE /products/{id}</strong> - Delete a product</p>
+        <pre>
+        DELETE /api/v1/products/1
+        </pre>
+        <p><strong>Response Code:</strong> 200 (OK)</p>
+        <pre>
+        {
+            "message": "Product deleted"
+        }
+        </pre>
+        <p><strong>Error Response:</strong> 404 (Not Found)</p>
+        <pre>
+        {
+            "message": "Product not found"
+        }
+        </pre>
+    </div>
+</body>
+</html>
