@@ -17,6 +17,9 @@ This repository contains the iThinkLogistics project. Follow the steps below to 
    ```bash
    cd ithinklogistics
    ```
+   ```bash
+   composer install
+   ```
 
 3. Copy the testing environment file to the main `.env` file:
 
